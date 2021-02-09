@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12">
+        <h1>Our Home</h1>
+    </div>
+</div>
+<div class="row mt-5">
+    <!-- user_pk = request.session.get('user')
+    if user_pk:
+        fcuser = Fcuser.objects.get(pk=user_pk)  -->
+        <!-- 원래 view에 있었던 코드 추가 -->
+    {% if request.session.user %}
+    <div class="col-6">
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcuser/logout/'" style="width: 300px; margin-bottom: 20px;">Log Out</button>
+    </div>
+    {% else %}
+    <div class="col-6">
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcuser/login/'"  style="width: 300px; margin-bottom: 20px;">Log In</button>
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary btn-block" onclick="location.href='/fcuser/register/'"  style="width: 300px; margin-bottom: 20px;">Register</button>
+    </div>
+    
+    {% endif %}
+
+<div calss="row mt-1">
+    <div class="col-12">
+        <button class="btn btn-primary btn-block" onclick="location.href='/board/list'" style="width: 300px;">Bulletin</button>
+    </div>
+</div>
+{% endblock %}

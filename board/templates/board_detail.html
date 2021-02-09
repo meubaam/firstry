@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Board{% endblock %}
+
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12">
+        <label for="title">제목</label>
+        <input stype="margin: 20px;" type="test" class="form-control" id="title" value="{{ board.title }}" readonly />
+        <div style="margin-top: 20px;">
+            <label for="contents">내용</label>
+            <textarea stype="margin: 100px;" class='form-control' readonly>{{ board.contents }}</textarea>
+        </div>
+        <div style="margin-top: 20px;">
+            <label for="tags" style="font-size: 12px;">#</label>
+            <span id="tags" style="font-size: 12px; color: blueviolet;">
+            {{ board.tags.all|join:","}}
+            <!-- {% for tag in board.tags.all %}
+              {{ tag.name }},
+            {% endfor %} -->
+            </span>
+        </div>    
+    </div>
+    <button type="button" class="btn btn-primary" style="margin: 20px;" onclick="location.href='/board/list'">돌아가기</button>
+    </form>
+</div>
+</div>
+{% endblock %}
